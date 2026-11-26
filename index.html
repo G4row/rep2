@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#020602">
+<title>WSK · Replenishment Board</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="rain" class="rain" aria-hidden="true" hidden></canvas>
+
+<!-- ===== Login ===== -->
+<section id="scrLogin" class="scr-login" hidden>
+  <div class="login-top"><button type="button" class="server-pill" data-server></button></div>
+  <main class="login">
+    <div class="login-head">
+      <div class="kicker">[ G4ROW ] · WSK://REPLENISH</div>
+      <h1 class="display cursor" data-i18n="app_title"></h1>
+      <div class="cmd">$ wsk --login</div>
+    </div>
+    <form id="loginForm" novalidate>
+      <fieldset class="field">
+        <legend class="lbl" data-i18n="choose_lang"></legend>
+        <div class="lang-row" id="loginLangs"></div>
+        <div class="hint" id="loginLangName"></div>
+      </fieldset>
+      <div class="field">
+        <label class="lbl" for="inUser" data-i18n="username"></label>
+        <input id="inUser" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="24" data-i18n-ph="username_ph">
+      </div>
+      <fieldset class="field">
+        <legend class="lbl" data-i18n="position"></legend>
+        <div class="role-row" id="loginRoles"></div>
+      </fieldset>
+      <button type="submit" class="btn btn-primary btn-block" id="btnEnter"></button>
+      <p class="hint" data-i18n="login_note"></p>
+    </form>
+  </main>
+</section>
+
+<!-- ===== App ===== -->
+<section id="scrApp" hidden>
+  <header class="topbar">
+    <div class="tb-left" id="tbLeft"></div>
+    <div class="tb-mid"><button type="button" class="server-pill" data-server></button></div>
+    <div class="tb-right">
+      <span class="user-chip" id="userChip"></span>
+      <div class="menu-wrap">
+        <button type="button" class="btn btn-sm" id="btnRole" aria-haspopup="true" aria-expanded="false" aria-controls="roleMenu"></button>
+        <div class="menu" id="roleMenu" hidden></div>
+      </div>
+    </div>
+  </header>
+  <div class="banner" id="offBanner" role="alert" hidden data-i18n="server_off_banner"></div>
+  <main class="wrap" id="main"></main>
+  <footer class="foot">
+    <span data-i18n="demo_note"></span>
+    <button type="button" class="link" id="btnDemoReset" data-i18n="demo_reset"></button>
+  </footer>
+</section>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<div class="ntf-stack" id="ntfStack" aria-live="polite"></div>
+<dialog id="dlg" class="dlg"></dialog>
+
+<script src="js/i18n.js"></script>
+<script src="js/store.js"></script>
+<script src="js/rain.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
